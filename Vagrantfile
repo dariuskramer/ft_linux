@@ -44,5 +44,5 @@ Vagrant.configure("2") do |config|
     swapon /dev/sdb2
   SHELL
 
-  config.vm.provision "build", type: :shell, path: "build.sh"
+  config.vm.provision "setup", type: :shell, path: "setup.sh"
 end
