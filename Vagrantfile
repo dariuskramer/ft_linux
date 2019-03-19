@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "generic/alpine38"
+  config.vm.box = "archlinux/archlinux"
   config.vm.provider "virtualbox" do |vbox|
     vbox.memory = 4096
     vbox.cpus = 4
