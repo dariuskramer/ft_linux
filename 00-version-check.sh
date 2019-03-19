@@ -4,7 +4,7 @@ set -e
 
 sed -i -e 's|^#IgnorePkg\s.*$|IgnorePkg = linux linux-headers linux-api-headers|' /etc/pacman.conf
 
-pacman -Sy --needed --noconfirm bash binutils bison bzip2 coreutils diffutils findutils gawk gcc glibc grep gzip m4 make patch perl python sed tar texinfo xz
+pacman -Syu --needed --noconfirm bash binutils bison bzip2 coreutils diffutils findutils gawk gcc glibc grep gzip m4 make patch perl python sed tar texinfo xz
 
 export LC_ALL=C
 bash --version | head -n1 | cut -d" " -f2-4

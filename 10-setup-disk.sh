@@ -4,7 +4,7 @@ set -e
 
 LFS_DEVICE='/dev/sdb'
 LFS_PATH='/mnt/lfs'
-pacman -Sy --needed --noconfirm parted
+pacman -Syu --needed --noconfirm parted
 
 umount --quiet --recursive ${LFS_PATH} || true
 
