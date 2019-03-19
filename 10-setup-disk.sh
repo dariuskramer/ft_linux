@@ -3,10 +3,10 @@
 set -e
 
 LFS_DEVICE='/dev/sdb'
-LFS_PATH='/mnt/lfs'
+LFS='/mnt/lfs'
 pacman -Syu --needed --noconfirm parted
 
-umount --quiet --recursive ${LFS_PATH} || true
+umount --quiet --recursive ${LFS} || true
 
 parted --script --align minimal ${LFS_DEVICE} -- \
        mklabel msdos \
@@ -19,5 +19,5 @@ mkfs.ext2 -L boot /dev/sdb1
 mkswap    -L swap /dev/sdb2
 mkfs.ext4 -L lfs  /dev/sdb3
 
-mkdir -p ${LFS_PATH}      && mount /dev/sdb3 ${LFS_PATH}
-mkdir -p ${LFS_PATH}/boot && mount /dev/sdb1 ${LFS_PATH}/boot
+mkdir -p ${LFS}      && mount /dev/sdb3 ${LFS}
+mkdir -p ${LFS}/boot && mount /dev/sdb1 ${LFS}/boot
