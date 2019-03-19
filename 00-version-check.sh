@@ -2,7 +2,8 @@
 
 set -e
 
-pacman -Syu --needed --noconfirm bash binutils bison bzip2 coreutils diffutils findutils gawk gcc glibc grep gzip m4 make patch perl python sed tar texinfo xz
+
+pacman -Sy --needed --noconfirm bash binutils bison bzip2 coreutils diffutils findutils gawk gcc glibc grep gzip m4 make patch perl python sed tar texinfo xz
 
 export LC_ALL=C
 bash --version | head -n1 | cut -d" " -f2-4
