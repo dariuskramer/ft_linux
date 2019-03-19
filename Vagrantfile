@@ -26,6 +26,6 @@ Vagrant.configure("2") do |config|
                     '--type', 'hdd',
                     '--medium', lfs_disk]
   end
-  config.vm.provision "10-partition", type: :shell, path: "10-partition.sh"
-  config.vm.provision "20-setup"    , type: :shell, path: "20-setup.sh"
+  config.vm.provision "00-version-check", type: :shell, path: "00-version-check.sh"
+  config.vm.provision "10-setup-disk",    type: :shell, path: "10-setup-disk.sh"
 end
