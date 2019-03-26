@@ -18,10 +18,6 @@ pushd $srcdir
 md5sum -c md5sums
 popd
 
-LFS='/mnt/lfs'
-LFS_DEVICE='/dev/vdb'
-LFS_GROUP='vagrant'
-LFS_USER='vagrant'
 toolsdir="${LFS}/tools"
 
 mkdir -p $toolsdir
