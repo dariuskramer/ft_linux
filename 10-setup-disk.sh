@@ -15,9 +15,9 @@ parted --script --align minimal ${LFS_DEVICE} -- \
        mkpart primary linux-swap 1GiB 3GiB \
        mkpart primary ext4 3GiB 100%
 
-mkfs.ext2 -L boot /dev/sdb1
-mkswap    -L swap /dev/sdb2
-mkfs.ext4 -L lfs  /dev/sdb3
+mkfs.ext2 -L boot /dev/${LFS_DEVICE}1
+mkswap    -L swap /dev/${LFS_DEVICE}2
+mkfs.ext4 -L lfs  /dev/${LFS_DEVICE}3
 
-mkdir -p ${LFS}      && mount /dev/sdb3 ${LFS}
-mkdir -p ${LFS}/boot && mount /dev/sdb1 ${LFS}/boot
+mkdir -p ${LFS}      && mount /dev/${LFS_DEVICE}3 ${LFS}
+mkdir -p ${LFS}/boot && mount /dev/${LFS_DEVICE}1 ${LFS}/boot
