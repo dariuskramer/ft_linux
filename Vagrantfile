@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = 'archlinux/archlinux'
   config.vm.provider :libvirt do |domain|
     domain.memory = 4096
-    domain.cpus = 4
+    domain.cpus = 8
     domain.storage_pool_name = 'default'
     domain.storage :file,
                    :path => 'lfs_disk',
