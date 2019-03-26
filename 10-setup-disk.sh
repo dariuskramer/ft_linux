@@ -2,10 +2,10 @@
 
 set -e
 
+LFS='/mnt/lfs'
 LFS_DEVICE='/dev/vdb'
 LFS_GROUP='vagrant'
 LFS_USER='vagrant'
-LFS='/mnt/lfs'
 pacman -Syu --needed --noconfirm parted
 
 umount --quiet --recursive ${LFS} || true
