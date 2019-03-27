@@ -15,4 +15,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :reload
   config.vm.provision '10-setup-disk',        type: :shell, path: '10-setup-disk.sh'
   config.vm.provision '20-setup-environment', type: :shell, path: '20-setup-environment.sh'
+  config.vm.provision '30-build-temp-system', type: :shell, path: '30-build-temp-system.sh',
+                      privileged: false,
+                      env: { :BASH_ENV => "~/.bashrc" }
 end
