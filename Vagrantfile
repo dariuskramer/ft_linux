@@ -18,4 +18,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision '30-build-temp-system',  type: :shell, path: '30-build-temp-system.sh',
                       privileged: false,
                       env: { :BASH_ENV => "~/.bashrc" }
+  
+  config.vm.provision '40-setup-final-system', type: :shell, path: '40-setup-final-system.sh'
 end
