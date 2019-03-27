@@ -11,11 +11,11 @@ Vagrant.configure("2") do |config|
                    :size => '20G',
                    :allow_existing => true
   end
-  config.vm.provision '00-version-check',     type: :shell, path: '00-version-check.sh'
+  config.vm.provision '00-version-check',      type: :shell, path: '00-version-check.sh'
   config.vm.provision :reload
-  config.vm.provision '10-setup-disk',        type: :shell, path: '10-setup-disk.sh'
-  config.vm.provision '20-setup-environment', type: :shell, path: '20-setup-environment.sh'
-  config.vm.provision '30-build-temp-system', type: :shell, path: '30-build-temp-system.sh',
+  config.vm.provision '10-setup-disk',         type: :shell, path: '10-setup-disk.sh'
+  config.vm.provision '20-setup-temp-systemp', type: :shell, path: '20-setup-temp-system.sh'
+  config.vm.provision '30-build-temp-system',  type: :shell, path: '30-build-temp-system.sh',
                       privileged: false,
                       env: { :BASH_ENV => "~/.bashrc" }
 end

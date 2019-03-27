@@ -2,6 +2,7 @@
 
 set -e
 
+# [[file:~/org/projects/ft_linux.org::*Configurer%20l'environnement%20du%20syst%C3%A8me%20temporaire][Configurer l'environnement du système temporaire:1]]
 LFS='/mnt/lfs'
 LFS_DEVICE='/dev/vdb'
 LFS_GROUP='vagrant'
@@ -17,7 +18,9 @@ pushd $srcdir
 wget --no-verbose --directory-prefix=$srcdir --input-file=wget-list --continue
 md5sum -c md5sums
 popd
+# Configurer l'environnement du système temporaire:1 ends here
 
+# [[file:~/org/projects/ft_linux.org::*Configurer%20l'environnement%20du%20syst%C3%A8me%20temporaire][Configurer l'environnement du système temporaire:2]]
 toolsdir="${LFS}/tools"
 
 mkdir -p $toolsdir
@@ -40,3 +43,4 @@ export LFS_TGT=\$(uname -m)-lfs-linux-gnu
 export PATH=/tools/bin:/bin:/usr/bin
 export MAKEFLAGS='-j 8'
 EOF
+# Configurer l'environnement du système temporaire:2 ends here

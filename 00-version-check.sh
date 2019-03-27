@@ -2,8 +2,11 @@
 
 set -e
 
+# [[file:~/org/projects/ft_linux.org::install-prerequisites-tools][install-prerequisites-tools]]
 pacman -Syu --needed --noconfirm bash binutils bison bzip2 coreutils diffutils findutils gawk gcc glibc grep gzip m4 make patch perl python sed tar texinfo xz
+# install-prerequisites-tools ends here
 
+# [[file:~/org/projects/ft_linux.org::tools-version-check][tools-version-check]]
 export LC_ALL=C
 bash --version | head -n1 | cut -d" " -f2-4
 MYSH=$(readlink -f /bin/sh)
@@ -59,3 +62,4 @@ else
     echo "g++ compilation failed";
 fi
 rm -f dummy.c dummy
+# tools-version-check ends here
