@@ -13,8 +13,8 @@ mkdir -p $srcdir
 chmod -v a+wt $srcdir
 wget --no-verbose --directory-prefix=$srcdir 'http://www.linuxfromscratch.org/lfs/view/stable-systemd/wget-list'
 wget --no-verbose --directory-prefix=$srcdir 'http://www.linuxfromscratch.org/lfs/view/stable-systemd/md5sums'
-wget --no-verbose --directory-prefix=$srcdir --input-file=wget-list --continue
 pushd $srcdir
+wget --no-verbose --directory-prefix=$srcdir --input-file=wget-list --continue
 md5sum -c md5sums
 popd
 
