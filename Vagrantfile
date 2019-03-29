@@ -1,23 +1,27 @@
 Vagrant.configure("2") do |config|
-  config.vagrant.plugins = ["vagrant-libvirt", "vagrant-reload"]
-  config.vm.box = 'archlinux/archlinux'
+  config.vagrant.plugins = ["vagrant-libvirt"]
+  config.vm.box = 'lfs/archlinux'
+  config.vm.synced_folder ".", "/vagrant", type: "nfs", disabled: true
   config.vm.provider :libvirt do |domain|
     domain.memory = 4096
     domain.cpus = 8
-    domain.storage_pool_name = 'default'
     domain.storage :file,
                    :path => 'lfs_disk',
                    :device => 'vdb',
                    :size => '20G',
                    :allow_existing => true
   end
-  config.vm.provision '00-version-check',      type: :shell, path: '00-version-check.sh'
-  config.vm.provision 'reload-after-upgrade',  type: :reload
   config.vm.provision '10-setup-disk',         type: :shell, path: '10-setup-disk.sh'
-  config.vm.provision '20-setup-temp-systemp', type: :shell, path: '20-setup-temp-system.sh'
+  config.vm.provision '20-setup-temp-system', type: :shell, path: '20-setup-temp-system.sh'
   config.vm.provision '30-build-temp-system',  type: :shell, path: '30-build-temp-system.sh',
                       privileged: false,
                       env: { :BASH_ENV => "~/.bashrc" }
   
   config.vm.provision '40-setup-final-system', type: :shell, path: '40-setup-final-system.sh'
+  
+  config.vm.provision '50-setup-final-system', type: :file,
+                      source: "50-setup-final-system.sh",
+                      destination: "/mnt/lfs/sources/"
+  config.vm.provision '50-exec-in-chroot',     type: :shell, path: 'xx-exec-in-chroot.sh',
+                      args: ["/sources/50-setup-final-system.sh"]
 end
