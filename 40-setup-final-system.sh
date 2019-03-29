@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -xe
 
 # [[file:~/org/projects/ft_linux.org::*Configurer%20l'environnement%20du%20syst%C3%A8me%20final][Configurer l'environnement du système final:1]]
 LFS='/mnt/lfs'

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -xe
 
 repo='https://github.com/archlinux/arch-boxes/raw/master'
 logfile=$(mktemp)

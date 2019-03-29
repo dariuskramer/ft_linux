@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -xe
 
 # [[file:~/org/projects/ft_linux.org::*Configuration%20du%20disque%20de%20destination%20pour%20/LFS/][Configuration du disque de destination pour /LFS/:1]]
 LFS='/mnt/lfs'

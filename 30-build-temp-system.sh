@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -xe
 
 # [[file:~/org/projects/ft_linux.org::*Construire%20le%20syst%C3%A8me%20temporaire][Construire le système temporaire:1]]
 cd ${LFS}/sources
