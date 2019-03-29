@@ -1,1 +1,6 @@
-*.vdi
+*.box
+box/http/
+box/provision/cleanup.sh
+box/provision/qemu.sh
+box/provision/postinstall.sh
+box/pkg-cache

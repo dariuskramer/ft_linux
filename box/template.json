@@ -1,0 +1,65 @@
+{
+    "variables": {
+	"iso_url": "{{env `ISO_URL`}}",
+	"iso_checksum_url": "{{env `ISO_CHECKSUM_URL`}}",
+	"iso_checksum_type": "sha1",
+	"disk_size": "20480",
+	"memory": "4096",
+	"cpus": "4",
+	"headless": "true",
+	"boot_wait": "5s"
+    },
+    "builders": [
+	{
+	    "type": "qemu",
+	    "boot_wait": "{{user `boot_wait`}}",
+	    "http_directory": "box/http",
+	    "disk_size": "{{user `disk_size`}}",
+	    "iso_checksum_url": "{{user `iso_checksum_url`}}",
+	    "iso_checksum_type": "{{user `iso_checksum_type`}}",
+	    "iso_url": "{{user `iso_url`}}",
+	    "ssh_username": "vagrant",
+	    "ssh_password": "vagrant",
+	    "ssh_port": 22,
+	    "ssh_wait_timeout": "10000s",
+	    "shutdown_command": "sudo systemctl poweroff",
+	    "headless": "{{user `headless`}}",
+	    "qemuargs": [
+		[ "-m", "{{user `memory`}}" ],
+		[ "-smp", "{{user `cpus`}}" ]
+	    ],
+	    "boot_command": [
+		"<enter><wait40><enter><enter>",
+		"curl -O 'http://{{.HTTPIP}}:{{.HTTPPort}}/install{,-chroot}.sh'<enter><wait>",
+		"bash install.sh < install-chroot.sh && systemctl reboot<enter>"
+	    ]
+	}
+    ],
+    "provisioners": [
+	{
+	    "type": "file",
+	    "source": "box/pkg-cache",
+	    "destination": "/home/vagrant/lfs-packages"
+	},
+	{
+	    "type": "shell",
+	    "scripts": [
+		"box/provision/postinstall.sh",
+		"box/provision/qemu.sh",
+		"box/provision/lfs-tools.sh",
+		"box/provision/lfs-packages.sh",
+		"box/provision/cleanup.sh"
+	    ],
+	    "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+	}
+    ],
+    "post-processors": [
+	[
+	    {
+		"type": "vagrant",
+		"keep_input_artifact": false,
+		"output": "lfs-archlinux-{{ .Provider }}-{{isotime \"2006-01-02\"}}.box"
+	    }
+	]
+    ]
+}
