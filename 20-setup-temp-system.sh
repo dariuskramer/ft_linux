@@ -2,7 +2,7 @@
 
 set -xe
 
-# [[file:~/org/projects/ft_linux.org::*Configurer%20l'environnement%20du%20syst%C3%A8me%20temporaire][Configurer l'environnement du système temporaire:1]]
+# [[file:~/org/projects/ft_linux.org::*Configuration%20de%20l'environnement%20du%20syst%C3%A8me%20temporaire][Configuration de l'environnement du système temporaire:1]]
 LFS='/mnt/lfs'
 LFS_DEVICE='/dev/vdb'
 LFS_GROUP='vagrant'
@@ -31,4 +31,4 @@ export LFS_TGT=\$(uname -m)-lfs-linux-gnu
 export PATH=/tools/bin:/bin:/usr/bin
 export MAKEFLAGS='-j 8'
 EOF
-# Configurer l'environnement du système temporaire:1 ends here
+# Configuration de l'environnement du système temporaire:1 ends here

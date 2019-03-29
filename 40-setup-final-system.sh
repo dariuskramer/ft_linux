@@ -2,13 +2,13 @@
 
 set -xe
 
-# [[file:~/org/projects/ft_linux.org::*Configurer%20l'environnement%20du%20syst%C3%A8me%20final][Configurer l'environnement du système final:1]]
+# [[file:~/org/projects/ft_linux.org::*Configuration%20de%20l'environnement%20du%20syst%C3%A8me%20final][Configuration de l'environnement du système final:1]]
 LFS='/mnt/lfs'
 LFS_DEVICE='/dev/vdb'
 LFS_GROUP='vagrant'
 LFS_USER='vagrant'
 chown -R root:root $LFS/tools
-# Configurer l'environnement du système final:1 ends here
+# Configuration de l'environnement du système final:1 ends here
 
 # [[file:~/org/projects/ft_linux.org::*%5B%5Bhttp://www.linuxfromscratch.org/lfs/view/stable-systemd/chapter06/kernfs.html%5D%5B6.2.%C2%A0Preparing%20Virtual%20Kernel%20File%20Systems%5D%5D][[[http://www.linuxfromscratch.org/lfs/view/stable-systemd/chapter06/kernfs.html][6.2. Preparing Virtual Kernel File Systems]]:1]]
 mkdir -pv $LFS/{dev,proc,sys,run}

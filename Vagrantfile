@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
                    :allow_existing => true
   end
   config.vm.provision '10-setup-disk',         type: :shell, path: '10-setup-disk.sh'
-  config.vm.provision '20-setup-temp-system', type: :shell, path: '20-setup-temp-system.sh'
+  config.vm.provision '20-setup-temp-system',  type: :shell, path: '20-setup-temp-system.sh'
   config.vm.provision '30-build-temp-system',  type: :shell, path: '30-build-temp-system.sh',
                       privileged: false,
                       env: { :BASH_ENV => "~/.bashrc" }
