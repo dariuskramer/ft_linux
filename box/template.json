@@ -58,7 +58,7 @@
 	    {
 		"type": "vagrant",
 		"keep_input_artifact": false,
-		"output": "lfs-archlinux-{{ .Provider }}-{{isotime \"2006-01-02\"}}.box"
+		"output": "lfs-archlinux-{{ .Provider }}.box"
 	    }
 	]
     ]

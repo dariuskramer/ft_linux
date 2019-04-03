@@ -1,6 +1,5 @@
-TODAY=$(shell date +'%Y-%m-%d')
 BOX_TEMPLATE=box/template.json
-BOX_FILE=lfs-archlinux-libvirt-${TODAY}.box
+BOX_FILE=lfs-archlinux-libvirt.box
 BOX_NAME=lfs/archlinux
 
 ${BOX_FILE}:
