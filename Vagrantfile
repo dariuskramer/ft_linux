@@ -23,4 +23,10 @@ Vagrant.configure("2") do |config|
                       destination: "/mnt/lfs/sources/"
   config.vm.provision '50-exec-in-chroot',     type: :shell, path: 'xx-exec-in-chroot.sh',
                       args: ["/sources/50-setup-final-system.sh"]
+  
+  config.vm.provision '60-build-final-system', type: :file,
+                      source: "60-build-final-system.sh",
+                      destination: "/mnt/lfs/sources/"
+  config.vm.provision '60-exec-in-chroot',     type: :shell, path: 'xx-exec-in-chroot.sh',
+                      args: ["/sources/60-build-final-system.sh"]
 end
