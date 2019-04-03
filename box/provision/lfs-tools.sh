@@ -4,7 +4,7 @@ set -xe
 
 set -x
 
-sudo pacman -Syu --needed --noconfirm bash binutils bison bzip2 coreutils diffutils findutils gawk gcc glibc grep gzip m4 make patch perl python sed tar texinfo xz
+sudo pacman -Syyu --needed --noconfirm bash binutils bison bzip2 coreutils diffutils findutils gawk gcc glibc grep gzip m4 make patch perl python sed tar texinfo xz
 
 export LC_ALL=C
 bash --version | head -n1 | cut -d" " -f2-4

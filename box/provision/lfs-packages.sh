@@ -4,7 +4,7 @@ set -xe
 
 set -x
 
-sudo pacman -Syu --needed --noconfirm wget
+sudo pacman -S --needed --noconfirm wget
 
 srcdir='/home/vagrant/lfs-packages'
 mkdir -p $srcdir

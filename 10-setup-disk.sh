@@ -7,7 +7,7 @@ LFS='/mnt/lfs'
 LFS_DEVICE='/dev/vdb'
 LFS_GROUP='vagrant'
 LFS_USER='vagrant'
-pacman -Syu --needed --noconfirm parted
+pacman -S --needed --noconfirm parted
 # Configuration du disque de destination pour /LFS/:1 ends here
 
 # [[file:~/org/projects/ft_linux.org::*Configuration%20du%20disque%20de%20destination%20pour%20/LFS/][Configuration du disque de destination pour /LFS/:2]]
