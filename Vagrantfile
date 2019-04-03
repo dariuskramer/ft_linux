@@ -8,8 +8,7 @@ Vagrant.configure("2") do |config|
     domain.storage :file,
                    :path => 'lfs_disk',
                    :device => 'vdb',
-                   :size => '20G',
-                   :allow_existing => true
+                   :size => '20G'
   end
   config.vm.provision '10-setup-disk',         type: :shell, path: '10-setup-disk.sh'
   config.vm.provision '20-setup-temp-system',  type: :shell, path: '20-setup-temp-system.sh'
