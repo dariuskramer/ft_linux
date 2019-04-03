@@ -4,7 +4,7 @@ BOX_NAME=lfs/archlinux
 PKG_CACHE_DIR=box/pkg-cache
 WGET_OPTS=--directory-prefix=${PKG_CACHE_DIR} --no-verbose -N
 
-all:
+all: box
 	vagrant up
 
 ${BOX_FILE}:
