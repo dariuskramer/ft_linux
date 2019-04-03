@@ -9,3 +9,11 @@ ${BOX_FILE}:
 	vagrant box add --force --name ${BOX_NAME} ${BOX_FILE}
 
 box: ${BOX_FILE}
+
+clean:
+	vagrant destroy -f
+
+fclean: clean
+	${RM} -f ${BOX_FILE}
+
+.PHONY: clean fclean
