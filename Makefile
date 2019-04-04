@@ -5,7 +5,7 @@ PKG_CACHE_DIR=box/pkg-cache
 WGET_OPTS=--directory-prefix=${PKG_CACHE_DIR} --no-verbose -N
 
 all: box
-	vagrant up
+	time -p -- vagrant up
 
 ${BOX_FILE}:
 	@mkdir -p box/{http,provision,pkg-cache}
