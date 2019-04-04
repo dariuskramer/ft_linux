@@ -1,0 +1,33 @@
+name: ft_linux
+root: ~/dev/ft_linux
+socket_path: <%= ENV["TMUX_SOCKET"] %>
+tmux_options: -f <%= ENV["TMUX_CONFIG"] %>
+startup_window: vagrant
+
+windows:
+  - vagrant:
+      layout: even-horizontal
+      panes:
+        - git status
+        - echo 'vagrant ssh'
+  - box:
+      root: "~/dev/ft_linux/box"
+      layout: even-horizontal
+      panes:
+        -
+        -
+  - virsh:
+      layout: even-horizontal
+      panes:
+        - pane_with_multiple_commands:
+          - virsh -c qemu:///session
+          - uri
+        - pane_with_multiple_commands:
+          - virsh -c qemu:///system
+          - uri
+  - demo:
+      root: "~/dev/demos"
+      layout: even-horizontal
+      panes:
+        - cd vagrant
+        - cd packer
