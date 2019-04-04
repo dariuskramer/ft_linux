@@ -1394,7 +1394,7 @@ rm -rf 'texinfo-6.5'
 # [[file:~/org/projects/ft_linux.org::build-vim-8.1][build-vim-8.1]]
 tar -xf vim-8.1.tar.bz2
 echo '>>> Building vim-8.1'
-pushd 'vim8.1'
+pushd 'vim81'
 
 echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
 
@@ -1429,7 +1429,7 @@ endif
 EOF
 
 popd
-rm -rf 'vim-8.1'
+rm -rf 'vim81'
 # build-vim-8.1 ends here
 
 # [[file:~/org/projects/ft_linux.org::build-systemd-240][build-systemd-240]]
