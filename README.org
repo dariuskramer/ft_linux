@@ -1,0 +1,14 @@
+* Automated build for a Linux From Scratch distribution
+
+** Prerequisites
+
+- Vagrant
+- Packer
+- Libvirt
+- QEMU
+
+** How to build
+
+#+BEGIN_SRC sh
+make
+#+END_SRC
